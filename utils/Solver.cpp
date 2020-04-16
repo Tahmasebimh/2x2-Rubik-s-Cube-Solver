@@ -8,7 +8,7 @@
 #include "../model/h/MovementProvider.h"
 
 Cube Solver::solveCube(Cube cube, int lastMovement, int layerCounter) {
-    if (cube.isSolved() || layerCounter >= 10){
+    if (cube.isSolved() || layerCounter >= 7){
         return cube;
     }
     if (lastMovement != movementProvider.tCW){
@@ -37,12 +37,12 @@ Cube Solver::solveCube(Cube cube, int lastMovement, int layerCounter) {
             if (layerCounter > test) {
                 solvedWayString.push_back("TCW swapping");
             }
+            solvedWayCube.push_back(cube);
             if (layerCounter == 1){
                 solvedWayCube.push_back(t);
                 solvedWayString.push_back("Finished :)");
                 showWayOfSolving();
             }
-            solvedWayCube.push_back(cube);
             return t;
         }
     }
@@ -54,12 +54,12 @@ Cube Solver::solveCube(Cube cube, int lastMovement, int layerCounter) {
             if (layerCounter > test) {
                 solvedWayString.push_back("FCCW swapping");
             }
+            solvedWayCube.push_back(cube);
             if (layerCounter == 1){
                 solvedWayCube.push_back(t);
                 solvedWayString.push_back("Finished :)");
                 showWayOfSolving();
             }
-            solvedWayCube.push_back(cube);
             return t;
         }
     }
@@ -72,12 +72,12 @@ Cube Solver::solveCube(Cube cube, int lastMovement, int layerCounter) {
             if (layerCounter > test) {
                 solvedWayString.push_back("FCW swapping");
             }
+            solvedWayCube.push_back(cube);
             if (layerCounter == 1){
                 solvedWayCube.push_back(t);
                 solvedWayString.push_back("Finished :)");
                 showWayOfSolving();
             }
-            solvedWayCube.push_back(cube);
             return t;
         }
     }
@@ -90,12 +90,12 @@ Cube Solver::solveCube(Cube cube, int lastMovement, int layerCounter) {
             if (layerCounter > test) {
                 solvedWayString.push_back("DCCW swapping");
             }
+            solvedWayCube.push_back(cube);
             if (layerCounter == 1){
                 solvedWayCube.push_back(t);
                 solvedWayString.push_back("Finished :)");
                 showWayOfSolving();
             }
-            solvedWayCube.push_back(cube);
             return t;
         }
     }
@@ -107,12 +107,12 @@ Cube Solver::solveCube(Cube cube, int lastMovement, int layerCounter) {
             if (layerCounter > test) {
                 solvedWayString.push_back("DCW swapping");
             }
+            solvedWayCube.push_back(cube);
             if (layerCounter == 1){
                 solvedWayCube.push_back(t);
                 solvedWayString.push_back("Finished :)");
                 showWayOfSolving();
             }
-            solvedWayCube.push_back(cube);
             return t;
         }
     }
@@ -124,12 +124,12 @@ Cube Solver::solveCube(Cube cube, int lastMovement, int layerCounter) {
             if (layerCounter > test) {
                 solvedWayString.push_back("BCCW swapping");
             }
+            solvedWayCube.push_back(cube);
             if (layerCounter == 1){
                 solvedWayCube.push_back(t);
                 solvedWayString.push_back("Finished :)");
                 showWayOfSolving();
             }
-            solvedWayCube.push_back(cube);
             return t;
         }
     }
@@ -141,12 +141,12 @@ Cube Solver::solveCube(Cube cube, int lastMovement, int layerCounter) {
             if (layerCounter > test) {
                 solvedWayString.push_back("BCW swapping");
             }
+            solvedWayCube.push_back(cube);
             if (layerCounter == 1){
                 solvedWayCube.push_back(t);
                 solvedWayString.push_back("Finished :)");
                 showWayOfSolving();
             }
-            solvedWayCube.push_back(cube);
 
             return t;
         }
@@ -159,12 +159,12 @@ Cube Solver::solveCube(Cube cube, int lastMovement, int layerCounter) {
             if (layerCounter > test) {
                 solvedWayString.push_back("RCCW swapping");
             }
+            solvedWayCube.push_back(cube);
             if (layerCounter == 1){
                 solvedWayCube.push_back(t);
                 solvedWayString.push_back("Finished :)");
                 showWayOfSolving();
             }
-            solvedWayCube.push_back(cube);
             return t;
         }
     }
@@ -176,12 +176,12 @@ Cube Solver::solveCube(Cube cube, int lastMovement, int layerCounter) {
             if (layerCounter > test) {
                 solvedWayString.push_back("RCW swapping");
             }
+            solvedWayCube.push_back(cube);
             if (layerCounter == 1){
                 solvedWayCube.push_back(t);
                 solvedWayString.push_back("Finished :)");
                 showWayOfSolving();
             }
-            solvedWayCube.push_back(cube);
             return t;
         }
     }
@@ -193,12 +193,12 @@ Cube Solver::solveCube(Cube cube, int lastMovement, int layerCounter) {
             if (layerCounter > test) {
                 solvedWayString.push_back("LCCW swapping");
             }
+            solvedWayCube.push_back(cube);
             if (layerCounter == 1){
                 solvedWayCube.push_back(t);
                 solvedWayString.push_back("Finished :)");
                 showWayOfSolving();
             }
-            solvedWayCube.push_back(cube);
             return t;
         }
     }
@@ -210,14 +210,17 @@ Cube Solver::solveCube(Cube cube, int lastMovement, int layerCounter) {
             if (layerCounter > test) {
                 solvedWayString.push_back("LCW swapping");
             }
+            solvedWayCube.push_back(cube);
             if (layerCounter == 1){
                 solvedWayCube.push_back(t);
                 solvedWayString.push_back("Finished :)");
                 showWayOfSolving();
             }
-            solvedWayCube.push_back(cube);
             return t;
         }
+    }
+    if(solvedWayCube.empty() && layerCounter == 1){
+        std::cout << "Cant solved this :(" << std::endl;
     }
 
     return cube;
@@ -228,6 +231,6 @@ void Solver::showWayOfSolving() {
         std::cout << solvedWayCube[i] << std::endl;
         std::cout << solvedWayString[i] << std::endl;
     }
-    std::cout << solvedWayCube[solvedWayString.size() - 1] << std::endl;
+    std::cout << solvedWayCube[solvedWayString.size() - 1];
     std::cout << solvedWayString[solvedWayString.size() - 1] << std::endl;
 }

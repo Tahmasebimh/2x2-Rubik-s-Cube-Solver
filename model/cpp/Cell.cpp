@@ -4,6 +4,10 @@
 
 #include "../h/Cell.h"
 
+
+
+Cell::Cell(int amount, const std::string &color) : amount(amount), color(color) {}
+
 int Cell::getAmount() const {
     return amount;
 }
@@ -12,12 +16,12 @@ void Cell::setAmount(int amount) {
     Cell::amount = amount;
 }
 
-char Cell::getColor() const {
+const std::string &Cell::getColor() const {
     return color;
 }
 
-void Cell::setColor(char color) {
+void Cell::setColor(const std::string &color) {
     Cell::color = color;
 }
 
-Cell::Cell(int amount, char color) : amount(amount), color(color) {}
+Cell::Cell() {}

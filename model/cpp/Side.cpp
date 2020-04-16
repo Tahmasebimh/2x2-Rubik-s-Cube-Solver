@@ -68,3 +68,8 @@ std::ostream &operator<<(std::ostream &os, const Side &side) {
     os << side.topRow << "  |  " << "\n" << side.bottomRow << "  |  ";
     return os;
 }
+
+Side::Side() {
+
+}
+

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include "model/h/Cell.h"
 #include "model/h/Row.h"
 #include "model/h/Side.h"
@@ -6,102 +7,153 @@
 #include "utils/Solver.h"
 #include "model/h/MovementProvider.h"
 
+void split(const std::string &str, std::vector<std::string> &vector, char delim = ',');
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    std::cout << "Hello!" << std::endl;
+
+    std::string delimiter = ",";
+
+    Side topSide;
+    bool topRowIsOk(false);
+    while (!topRowIsOk) {
+        std::cout << "Input top side of the cube (exp : 1,1,1,1)" << std::endl;
+        std::vector<std::string> inputs;
+        std::string topSideInput;
+        std::getline(std::cin, topSideInput);
+        split(topSideInput, inputs);
+        if (inputs.size() == 4) {
+            topRowIsOk = true;
+            topSide = Side(Row(Cell(std::stoi(inputs[0]), inputs[0]),
+                               Cell(std::stoi(inputs[1]), inputs[1])),
+                                       Row(Cell(std::stoi(inputs[2]), inputs[2]),
+                                               Cell(std::stoi(inputs[3]), inputs[3])));
+        } else {
+            std::cout << "Bad Input!" << std::endl;
+        }
+    }
+
+    Side frontSide;
+    bool frontRowIsOk(false);
+    while (!frontRowIsOk) {
+        std::cout << "Input front side of the cube (exp : 1,1,1,1)" << std::endl;
+        std::string frontSideInput;
+        std::getline(std::cin, frontSideInput);
+        std::vector<std::string> inputs;
+        split(frontSideInput, inputs);
+        if (inputs.size() == 4) {
+            frontRowIsOk = true;
+            frontSide = Side(Row(Cell(std::stoi(inputs[0]), inputs[0]),
+                               Cell(std::stoi(inputs[1]), inputs[1])),
+                                       Row(Cell(std::stoi(inputs[2]), inputs[2]),
+                                               Cell(std::stoi(inputs[3]), inputs[3])));
+        } else {
+            std::cout << "Bad Input!" << std::endl;
+        }
 
 
-    Cell cell1(1, 'w');
-    Cell cell2(1, 'w');
-    Row row1(cell1, cell2);
+    }
+    Side downSide;
+    bool downRowIsOk(false);
+    while (!downRowIsOk) {
+        std::cout << "Input down side of the cube (exp : 1,1,1,1)" << std::endl;
+        std::string downSideInput;
+        std::getline(std::cin, downSideInput);
+        std::vector<std::string> inputs;
+        split(downSideInput, inputs);
+        if (inputs.size() == 4) {
+            downRowIsOk = true;
+            downSide = Side(Row(Cell(std::stoi(inputs[0]), inputs[0]),
+                                Cell(std::stoi(inputs[1]), inputs[1])),
+                            Row(Cell(std::stoi(inputs[2]), inputs[2]),
+                                Cell(std::stoi(inputs[3]), inputs[3])));
+        } else {
+            std::cout << "Bad Input!" << std::endl;
+        }
+    }
 
 
-    Cell cell3(2, 'w');
-    Cell cell4(2, 'w');
-    Row row2(cell3, cell4);
-    Side side(row1, row2);
+    Side backSide;
+    bool backSideIsOk(false);
+    while (!backSideIsOk) {
+        std::cout << "Input back side of the cube (exp : 1,1,1,1)" << std::endl;
+        std::string backSideInput;
+        std::getline(std::cin, backSideInput);
+        std::vector<std::string> inputs;
+        split(backSideInput, inputs);
+        if (inputs.size() == 4) {
+            backSideIsOk = true;
+            backSide = Side(Row(Cell(std::stoi(inputs[0]), inputs[0]),
+                                Cell(std::stoi(inputs[1]), inputs[1])),
+                            Row(Cell(std::stoi(inputs[2]), inputs[2]),
+                                Cell(std::stoi(inputs[3]), inputs[3])));
+        } else {
+            std::cout << "Bad Input!" << std::endl;
+        }
+    }
 
-    Cell cell11(1, 'r');
-    Cell cell21(1, 'r');
-    Row row11(cell11, cell21);
+    Side rightSide;
+    bool rightSideIsOk(false);
+    while (!rightSideIsOk) {
+        std::cout << "Input right side of the cube (exp : 1,1,1,1)" << std::endl;
+        std::string inputString;
+        std::getline(std::cin, inputString);
+        std::vector<std::string> inputs;
+        split(inputString, inputs);
+        if (inputs.size() == 4) {
+            rightSideIsOk = true;
+            rightSide = Side(Row(Cell(std::stoi(inputs[0]), inputs[0]),
+                                 Cell(std::stoi(inputs[1]), inputs[1])),
+                             Row(Cell(std::stoi(inputs[2]), inputs[2]),
+                                 Cell(std::stoi(inputs[3]), inputs[3])));
+        } else {
+            std::cout << "Bad Input!" << std::endl;
+        }
+    }
 
+    Side leftSide;
+    bool leftSideIsOk(false);
+    while (!leftSideIsOk) {
+        std::cout << "Input left side of the cube (exp : 1,1,1,1)" << std::endl;
+        std::string inputString;
+        std::getline(std::cin, inputString);
+        std::vector<std::string> inputs;
+        split(inputString, inputs);
+        if (inputs.size() == 4) {
+            leftSideIsOk = true;
+            leftSide = Side(Row(Cell(std::stoi(inputs[0]), inputs[0]),
+                                Cell(std::stoi(inputs[1]), inputs[1])),
+                            Row(Cell(std::stoi(inputs[2]), inputs[2]),
+                                Cell(std::stoi(inputs[3]), inputs[3])));
+        } else {
+            std::cout << "Bad Input!" << std::endl;
+        }
+    }
 
-    Cell cell31(2, 'r');
-    Cell cell41(2, 'r');
-    Row row21(cell31, cell41);
-    Side side1(row11, row21);
+    std::cout << "Thanks for your attention!" << std::endl;
+    Cube cube(topSide, downSide, leftSide, rightSide, frontSide, backSide);
 
-    Cell cell12(1, 'y');
-    Cell cell22(1, 'y');
-    Row row12(cell12, cell22);
-
-
-    Cell cell32(2, 'y');
-    Cell cell42(2, 'y');
-    Row row22(cell32, cell42);
-    Side side2(row12, row22);
-
-    Cell cell13(1, 'o');
-    Cell cell23(1, 'o');
-    Row row13(cell13, cell23);
-
-
-    Cell cell33(2, 'o');
-    Cell cell43(2, 'o');
-    Row row23(cell33, cell43);
-    Side side3(row13, row23);
-
-    Cell cell14(1, 'g');
-    Cell cell24(1, 'g');
-    Row row14(cell14, cell24);
-
-
-    Cell cell34(2, 'g');
-    Cell cell44(2, 'g');
-    Row row24(cell34, cell44);
-    Side side4(row14, row24);
-
-
-    Cell cell15(1, 'b');
-    Cell cell25(1, 'b');
-    Row row15(cell15, cell25);
-
-
-    Cell cell35(2, 'b');
-    Cell cell45(2, 'b');
-    Row row25(cell35, cell45);
-    Side side5(row15, row25);
-
-   Cube cube(side, side1, side2, side3, side4, side5);
-   cube.fCW();
-   cube.tCW();
-   cube.rCCW();
-   std::cout << "Input cube is : " << std::endl;
-   std::cout << cube << std::endl;
-
+//    std::cout << "Input Cube is : " << std::endl;
+//    std::cout << cube << std::endl;
+    cube.tCW();
+    cube.rCCW();
+    cube.dCCW();
+    cube.bCCW();
+    cube.tCCW();
+    cube.rCW();
+    std::cout << "Input Cube is : " << std::endl;
+    std::cout << cube << std::endl;
     Solver solver;
-    MovementProvider movmentProvider;
-
-//    std::cout << cube.isSolved() << std::endl;
-//    cube.lCW();
-//    std::cout << cube << std::endl;
-//    cube.lCCW();
-//    std::cout << cube << std::endl;
-//    std::cout << cube.isSolved() << std::endl;
-
-//    Cube cube2(cube);
-//    std::cout << "Cube is : " << std::endl;
-//    std::cout << cube << std::endl;
-//    cube.lCCW();
-//    std::cout << "Cube2 is : " << std::endl;
-
-
-    std::cout << "Pleas wait until cube solving ... " << std::endl;
-    Cube solve = solver.solveCube(cube, movmentProvider.nothing, 1);
-
-//    std::cout << "Final ... " << std::endl;
-//
-//    std::cout << solve << std::endl;
+    std::cout << "Please wait until solving cube : " << std::endl;
+    Cube solved = solver.solveCube(cube, 0, 1);
 
     return 0;
+}
+
+void split(const std::string &str, std::vector<std::string> &vector, char delim) {
+    std::stringstream ss(str);
+    std::string token;
+    while (std::getline(ss, token, delim)) {
+        vector.push_back(token);
+    }
 }

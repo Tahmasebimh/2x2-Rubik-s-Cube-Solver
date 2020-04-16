@@ -6,24 +6,28 @@
 #define AP_MIDTERMPROJECT_CELL_H
 
 
+#include <string>
+
 class Cell {
 private:
     //this is cell amount to show
     int amount;
     //this is cell color
-    char color;
+    std::string color;
 
 public:
-    Cell(int amount, char color);
 
-public:
+    Cell(int amount, const std::string &color);
+
+    Cell();
+
     int getAmount() const;
 
     void setAmount(int amount);
 
-    char getColor() const;
+    const std::string &getColor() const;
 
-    void setColor(char color);
+    void setColor(const std::string &color);
 };
 
 

@@ -25,6 +25,9 @@ public:
 
     Row(const Cell &firstCell, const Cell &secondCell);
 
+    Row();
+
+
     friend std::ostream &operator<<(std::ostream &os, const Row &row);
 };
 

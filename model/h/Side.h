@@ -13,6 +13,7 @@ class Side {
 private:
     Row topRow, bottomRow;
 public:
+
     Side(const Row &topRow, const Row &bottomRow);
 
     const Row &getTopRow() const;
@@ -36,6 +37,8 @@ public:
     bool isSame();
 
     friend std::ostream &operator<<(std::ostream &os, const Side &side);
+
+    Side();
 };
 
 

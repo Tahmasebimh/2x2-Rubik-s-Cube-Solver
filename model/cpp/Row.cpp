@@ -26,3 +26,7 @@ std::ostream &operator<<(std::ostream &os, const Row &row) {
     os << row.firstCell.getColor() << "\t" << row.secondCell.getColor();
     return os;
 }
+
+Row::Row() {}
+
+
