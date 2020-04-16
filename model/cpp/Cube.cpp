@@ -62,7 +62,7 @@ void Cube::tCW() {
     topSide.cw();
     Row temp = frontSide.getTopRow();
     frontSide.setTopRow(rightSide.getTopRow());
-    rightSide.setTopRow(backSide.getTopRow());
+    rightSide.setTopRow(backSide.getBottomRow());
     backSide.setBottomRow(leftSide.getTopRow());
     leftSide.setTopRow(temp);
 }
@@ -71,7 +71,7 @@ void Cube::tCCW() {
     topSide.ccw();
     Row temp = frontSide.getTopRow();
     frontSide.setTopRow(leftSide.getTopRow());
-    leftSide.setTopRow(backSide.getTopRow());
+    leftSide.setTopRow(backSide.getBottomRow());
     backSide.setBottomRow(rightSide.getTopRow());
     rightSide.setTopRow(temp);
 }
@@ -112,8 +112,8 @@ void Cube::lCW() {
     frontSide.setLeftRow(temp);
 }
 
-void Cube::rCW() {
-    rightSide.cw();
+void Cube::rCCW() {
+    rightSide.ccw();
     Row temp = frontSide.getRightSide();
     frontSide.setRightRow(topSide.getRightSide());
     topSide.setRightRow(backSide.getRightSide());
@@ -121,8 +121,8 @@ void Cube::rCW() {
     downSide.setRightRow(temp);
 }
 
-void Cube::rCCW() {
-    rightSide.ccw();
+void Cube::rCW() {
+    rightSide.cw();
     Row temp = frontSide.getRightSide();
     frontSide.setRightRow(downSide.getRightSide());
     downSide.setRightRow(backSide.getRightSide());
@@ -152,7 +152,7 @@ void Cube::dCW() {
     downSide.cw();
     Row temp = frontSide.getBottomRow();
     frontSide.setBottomRow(leftSide.getBottomRow());
-    leftSide.setBottomRow(backSide.getBottomRow());
+    leftSide.setBottomRow(backSide.getTopRow());
     backSide.setTopRow(rightSide.getBottomRow());
     rightSide.setBottomRow(temp);
 }
@@ -161,7 +161,7 @@ void Cube::dCCW() {
     downSide.ccw();
     Row temp = frontSide.getBottomRow();
     frontSide.setBottomRow(rightSide.getBottomRow());
-    rightSide.setBottomRow(backSide.getBottomRow());
+    rightSide.setBottomRow(backSide.getTopRow());
     backSide.setTopRow(leftSide.getBottomRow());
     leftSide.setBottomRow(temp);
 }
@@ -176,13 +176,13 @@ std::ostream &operator<<(std::ostream &os, const Cube &cube) {
 //    Side side(Row(Cell(0, '0'), Cell(0, '0')),
 //            Row(Cell(0, '0'), Cell(0, '0')));
 
-    os  << " " << "\t" << " " << cube.topSide.getTopRow() << " " << "\t" << " " << std::endl
-        << " " << "\t" << " " << cube.topSide.getBottomRow() << " " << "\t" << " "<< std::endl
-        << cube.leftSide.getTopRow() << cube.frontSide.getTopRow() << cube.rightSide.getTopRow()<< std::endl
-        << cube.leftSide.getBottomRow() << cube.frontSide.getBottomRow() << cube.rightSide.getBottomRow() << std::endl
-        << " " << "\t" << " " << cube.downSide.getTopRow() << " " << "\t" << " "<< std::endl
-        << " " << "\t" << " " << cube.downSide.getBottomRow() << " " << "\t" << " "<< std::endl
-        << " " << "\t" << " " << cube.backSide.getTopRow() << " " << "\t" << " "<< std::endl
-        << " " << "\t" << " " << cube.backSide.getBottomRow() << " " << "\t" << " "<< std::endl;
+    os  << " " << "\t" << " " << " " << cube.topSide.getTopRow() << " " << "\t" << " " << std::endl
+        << " " << "\t" << " " << " " << cube.topSide.getBottomRow() << " " << "\t" << " "<< std::endl
+        << cube.leftSide.getTopRow() << " " << cube.frontSide.getTopRow() << " " << cube.rightSide.getTopRow()<< std::endl
+        << cube.leftSide.getBottomRow() << " " <<cube.frontSide.getBottomRow() << " " <<cube.rightSide.getBottomRow() << std::endl
+        << " " << "\t" << " " << " " <<cube.downSide.getTopRow() << " " <<" " << "\t" << " "<< std::endl
+        << " " << "\t" << " " << " " <<cube.downSide.getBottomRow() << " " <<" " << "\t" << " "<< std::endl
+        << " " << "\t" << " " <<" " << cube.backSide.getTopRow() <<" " << " " << "\t" << " "<< std::endl
+        << " " << "\t" << " " << " " <<cube.backSide.getBottomRow() <<" " << " " << "\t" << " "<< std::endl;
     return os;
 }

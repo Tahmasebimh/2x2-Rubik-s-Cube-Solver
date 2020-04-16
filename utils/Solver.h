@@ -13,6 +13,7 @@ class Solver {
 public:
     Cube solveCube(Cube cube, int lastMovement, int layerCounter);
 
+    int test = 0;
 };
 
 

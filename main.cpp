@@ -51,13 +51,13 @@ int main() {
     Row row23(cell33, cell43);
     Side side3(row13, row23);
 
-    Cell cell14(1, '1');
-    Cell cell24(1, '2');
+    Cell cell14(1, 'g');
+    Cell cell24(1, 'g');
     Row row14(cell14, cell24);
 
 
-    Cell cell34(2, '3');
-    Cell cell44(2, '4');
+    Cell cell34(2, 'g');
+    Cell cell44(2, 'g');
     Row row24(cell34, cell44);
     Side side4(row14, row24);
 
@@ -73,16 +73,32 @@ int main() {
     Side side5(row15, row25);
 
    Cube cube(side, side1, side2, side3, side4, side5);
-
+   cube.fCW();
+   cube.tCW();
+   cube.rCCW();
+   std::cout << "Input cube is : " << std::endl;
    std::cout << cube << std::endl;
 
     Solver solver;
     MovementProvider movmentProvider;
 
+//    std::cout << cube.isSolved() << std::endl;
+//    cube.lCW();
+//    std::cout << cube << std::endl;
+//    cube.lCCW();
+//    std::cout << cube << std::endl;
+//    std::cout << cube.isSolved() << std::endl;
 
-    cube.fCCW();
-    std::cout << cube << std::endl;
+//    Cube cube2(cube);
+//    std::cout << "Cube is : " << std::endl;
+//    std::cout << cube << std::endl;
+//    cube.lCCW();
+//    std::cout << "Cube2 is : " << std::endl;
 
-//    std::cout << solver.solveCube(cube, movmentProvider.nothing, 1);
+
+    std::cout << "Pleas wait until cube solving ... " << std::endl;
+    Cube solve = solver.solveCube(cube, movmentProvider.nothing, 1);
+    std::cout << solve << std::endl;
+
     return 0;
 }
