@@ -62,8 +62,8 @@ void Cube::tCW() {
     topSide.cw();
     Row temp = frontSide.getTopRow();
     frontSide.setTopRow(rightSide.getTopRow());
-    rightSide.setTopRow(backSide.getBottomRow());
-    backSide.setBottomRow(leftSide.getTopRow());
+    rightSide.setTopRow(backSide.getBottomRowInverse());
+    backSide.setBottomRow(leftSide.getTopRowInverse());
     leftSide.setTopRow(temp);
 }
 
@@ -71,27 +71,27 @@ void Cube::tCCW() {
     topSide.ccw();
     Row temp = frontSide.getTopRow();
     frontSide.setTopRow(leftSide.getTopRow());
-    leftSide.setTopRow(backSide.getBottomRow());
-    backSide.setBottomRow(rightSide.getTopRow());
+    leftSide.setTopRow(backSide.getBottomRowInverse());
+    backSide.setBottomRow(rightSide.getTopRowInverse());
     rightSide.setTopRow(temp);
 }
 
 void Cube::bCCW() {
     backSide.ccw();
     Row temp = topSide.getTopRow();
-    topSide.setTopRow(rightSide.getRightSide());
-    rightSide.setRightRow(downSide.getBottomRow());
-    downSide.setBottomRow(leftSide.getLeftRow());
-    leftSide.setLeftRow(temp);
+    topSide.setTopRow(leftSide.getLeftRowInverse());
+    leftSide.setLeftRow(downSide.getBottomRow());
+    downSide.setBottomRow(rightSide.getRightRowInverse());
+    rightSide.setRightRow(temp);
 }
 
 void Cube::bCW() {
     backSide.cw();
-    Row temp = topSide.getTopRow();
-    topSide.setTopRow(leftSide.getLeftRow());
-    leftSide.setLeftRow(downSide.getBottomRow());
-    downSide.setBottomRow(rightSide.getRightSide());
-    rightSide.setRightRow(temp);
+    Row temp = topSide.getTopRowInverse();
+    topSide.setTopRow(rightSide.getRightSide());
+    rightSide.setRightRow(downSide.getBottomRowInverse());
+    downSide.setBottomRow(leftSide.getLeftRow());
+    leftSide.setRightRow(temp);
 }
 
 void Cube::lCCW() {
@@ -133,17 +133,17 @@ void Cube::rCW() {
 void Cube::fCW() {
     frontSide.cw();
     Row temp = topSide.getBottomRow();
-    topSide.setBottomRow(leftSide.getRightSide());
+    topSide.setBottomRow(leftSide.getRightRowInverse());
     leftSide.setRightRow(downSide.getTopRow());
-    downSide.setTopRow(rightSide.getLeftRow());
+    downSide.setTopRow(rightSide.getLeftRowInverse());
     rightSide.setLeftRow(temp);
 }
 
 void Cube::fCCW() {
     frontSide.ccw();
-    Row temp = topSide.getBottomRow();
+    Row temp = topSide.getBottomRowInverse();
     topSide.setBottomRow(rightSide.getLeftRow());
-    rightSide.setLeftRow(downSide.getTopRow());
+    rightSide.setLeftRow(downSide.getTopRowInverse());
     downSide.setTopRow(leftSide.getRightSide());
     leftSide.setRightRow(temp);
 }
@@ -152,8 +152,8 @@ void Cube::dCW() {
     downSide.cw();
     Row temp = frontSide.getBottomRow();
     frontSide.setBottomRow(leftSide.getBottomRow());
-    leftSide.setBottomRow(backSide.getTopRow());
-    backSide.setTopRow(rightSide.getBottomRow());
+    leftSide.setBottomRow(backSide.getTopRowInverse());
+    backSide.setTopRow(rightSide.getBottomRowInverse());
     rightSide.setBottomRow(temp);
 }
 
@@ -161,8 +161,8 @@ void Cube::dCCW() {
     downSide.ccw();
     Row temp = frontSide.getBottomRow();
     frontSide.setBottomRow(rightSide.getBottomRow());
-    rightSide.setBottomRow(backSide.getTopRow());
-    backSide.setTopRow(leftSide.getBottomRow());
+    rightSide.setBottomRow(backSide.getTopRowInverse());
+    backSide.setTopRow(leftSide.getBottomRowInverse());
     leftSide.setBottomRow(temp);
 }
 
@@ -183,6 +183,6 @@ std::ostream &operator<<(std::ostream &os, const Cube &cube) {
         << " " << "\t" << " " << " " <<cube.downSide.getTopRow() << " " <<" " << "\t" << " "<< std::endl
         << " " << "\t" << " " << " " <<cube.downSide.getBottomRow() << " " <<" " << "\t" << " "<< std::endl
         << " " << "\t" << " " <<" " << cube.backSide.getTopRow() <<" " << " " << "\t" << " "<< std::endl
-        << " " << "\t" << " " << " " <<cube.backSide.getBottomRow() <<" " << " " << "\t" << " "<< std::endl;
+        << " " << "\t" << " " << " " <<cube.backSide.getBottomRow() <<" " << " " << "\t" << " ";
     return os;
 }

@@ -39,6 +39,14 @@ public:
     friend std::ostream &operator<<(std::ostream &os, const Side &side);
 
     Side();
+
+    Row getTopRowInverse();
+
+    Row getBottomRowInverse();
+
+    Row getLeftRowInverse();
+
+    Row getRightRowInverse();
 };
 
 

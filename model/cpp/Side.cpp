@@ -73,3 +73,19 @@ Side::Side() {
 
 }
 
+Row Side::getTopRowInverse() {
+    return Row(topRow.getSecondCell(), topRow.getFirstCell());
+}
+
+Row Side::getBottomRowInverse() {
+    return Row(bottomRow.getSecondCell(), bottomRow.getFirstCell());
+}
+
+Row Side::getLeftRowInverse() {
+    return Row(bottomRow.getFirstCell(), topRow.getFirstCell());
+}
+
+Row Side::getRightRowInverse() {
+    return Row(bottomRow.getSecondCell(), topRow.getSecondCell());
+}
+

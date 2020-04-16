@@ -135,12 +135,12 @@ int main() {
 
 //    std::cout << "Input Cube is : " << std::endl;
 //    std::cout << cube << std::endl;
-    cube.tCW();
-    cube.rCCW();
-    cube.dCCW();
-    cube.bCCW();
-    cube.tCCW();
-    cube.rCW();
+//    cube.tCW();
+//    cube.rCCW();
+//    cube.dCCW();
+//    cube.bCCW();
+//    cube.tCCW();
+//    cube.rCW();
     std::cout << "Input Cube is : " << std::endl;
     std::cout << cube << std::endl;
     Solver solver;
