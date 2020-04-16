@@ -57,3 +57,9 @@ void Side::setRightRow(Row row) {
     topRow.setSecondCell(row.getFirstCell());
     bottomRow.setSecondCell(row.getSecondCell());
 }
+
+bool Side::isSame() {
+    return topRow.getFirstCell().getColor() == topRow.getSecondCell().getColor()
+            && bottomRow.getFirstCell().getColor() == bottomRow.getSecondCell().getColor()
+            && topRow.getFirstCell().getColor() == bottomRow.getFirstCell().getColor();
+}

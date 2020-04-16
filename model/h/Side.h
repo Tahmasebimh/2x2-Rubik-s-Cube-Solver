@@ -31,6 +31,8 @@ public:
     void cw();
 
     void ccw();
+
+    bool isSame();
 };
 
 

@@ -109,7 +109,7 @@ void Cube::lCW() {
     topSide.setLeftRow(backSide.getLeftRow());
     backSide.setLeftRow(downSide.getLeftRow());
     downSide.setLeftRow(frontSide.getLeftRow());
-    frontSide.setLeftRow(temp)
+    frontSide.setLeftRow(temp);
 }
 
 void Cube::rCW() {
@@ -154,7 +154,7 @@ void Cube::dCW() {
     frontSide.setBottomRow(leftSide.getBottomRow());
     leftSide.setBottomRow(backSide.getBottomRow());
     backSide.setBottomRow(rightSide.getBottomRow());
-    rightSide.setBottomRow(temp)
+    rightSide.setBottomRow(temp);
 }
 
 void Cube::dCCW() {
@@ -164,4 +164,10 @@ void Cube::dCCW() {
     rightSide.setBottomRow(backSide.getBottomRow());
     backSide.setBottomRow(leftSide.getBottomRow());
     leftSide.setBottomRow(temp);
+}
+
+bool Cube::isSolved() {
+    return frontSide.isSame() && rightSide.isSame()
+        && backSide.isSame() && leftSide.isSame()
+        && topSide.isSame() && downSide.isSame();
 }

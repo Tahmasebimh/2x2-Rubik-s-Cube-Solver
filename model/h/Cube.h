@@ -11,8 +11,12 @@
 class Cube {
 
 public:
-    Cube(const Side &topSide, const Side &downSide, const Side &leftSide, const Side &rightSide, const Side &frontSide,
-         const Side &backSide);
+    Cube(const Side &topSide,
+            const Side &downSide,
+            const Side &leftSide,
+            const Side &rightSide,
+            const Side &frontSide,
+            const Side &backSide);
 
     const Side &getTopSide() const;
 
@@ -56,6 +60,8 @@ public:
 
     void dCW();
     void dCCW();
+
+    bool isSolved();
 
 private:
     Side topSide, downSide, leftSide, rightSide, frontSide, backSide;
