@@ -7,13 +7,23 @@
 
 
 #include "../model/h/Cube.h"
+#include "../model/h/MovementProvider.h"
+#include <vector>
 
 class Solver {
+
+
+private:
+    std::vector<Cube> solvedWayCube;
+    std::vector<std::string> solvedWayString;
+    MovementProvider movementProvider;
 
 public:
     Cube solveCube(Cube cube, int lastMovement, int layerCounter);
 
     int test = 0;
+
+    void showWayOfSolving();
 };
 
 

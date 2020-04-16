@@ -98,7 +98,10 @@ int main() {
 
     std::cout << "Pleas wait until cube solving ... " << std::endl;
     Cube solve = solver.solveCube(cube, movmentProvider.nothing, 1);
-    std::cout << solve << std::endl;
+
+//    std::cout << "Final ... " << std::endl;
+//
+//    std::cout << solve << std::endl;
 
     return 0;
 }
