@@ -6,6 +6,7 @@
 #define AP_MIDTERMPROJECT_SIDE_H
 
 
+#include <ostream>
 #include "Row.h"
 
 class Side {
@@ -33,6 +34,8 @@ public:
     void ccw();
 
     bool isSame();
+
+    friend std::ostream &operator<<(std::ostream &os, const Side &side);
 };
 
 

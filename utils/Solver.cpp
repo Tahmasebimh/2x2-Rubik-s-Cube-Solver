@@ -1,11 +1,12 @@
 //
 // Created by Hossein on 4/16/2020.
 //
-#include <vector>
-#include "../h/solver.h"
-#include "../h/MovementProvider.h"
 
-Cube solveCube(Cube cube, int lastMovement, int layerCounter){
+#include <vector>
+#include "Solver.h"
+#include "../model/h/MovementProvider.h"
+
+Cube Solver::solveCube(Cube cube, int lastMovement, int layerCounter) {
     if (cube.isSolved() && layerCounter >= 15){
         return cube;
     }
@@ -18,7 +19,7 @@ Cube solveCube(Cube cube, int lastMovement, int layerCounter){
     }
     if (lastMovement != movementProvider.tCCW){
         Cube cube1(cube);
-        cube1.tCCW();
+        cube1.tCW();
         cubs.push_back(solveCube(cube, movementProvider.tCW, (layerCounter + 1)));
     }
     if (lastMovement != movementProvider.fCW){

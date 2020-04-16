@@ -63,3 +63,8 @@ bool Side::isSame() {
             && bottomRow.getFirstCell().getColor() == bottomRow.getSecondCell().getColor()
             && topRow.getFirstCell().getColor() == bottomRow.getFirstCell().getColor();
 }
+
+std::ostream &operator<<(std::ostream &os, const Side &side) {
+    os << side.topRow << "  |  " << "\n" << side.bottomRow << "  |  ";
+    return os;
+}

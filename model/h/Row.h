@@ -6,6 +6,7 @@
 #define AP_MIDTERMPROJECT_ROW_H
 
 
+#include <ostream>
 #include "Cell.h"
 
 class Row {
@@ -24,6 +25,7 @@ public:
 
     Row(const Cell &firstCell, const Cell &secondCell);
 
+    friend std::ostream &operator<<(std::ostream &os, const Row &row);
 };
 
 

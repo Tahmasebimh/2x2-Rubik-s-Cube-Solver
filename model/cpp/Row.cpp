@@ -21,3 +21,8 @@ void Row::setSecondCell(const Cell &secondCell) {
 }
 
 Row::Row(const Cell &firstCell, const Cell &secondCell) : firstCell(firstCell), secondCell(secondCell) {}
+
+std::ostream &operator<<(std::ostream &os, const Row &row) {
+    os << row.firstCell.getColor() << "\t" << row.secondCell.getColor();
+    return os;
+}

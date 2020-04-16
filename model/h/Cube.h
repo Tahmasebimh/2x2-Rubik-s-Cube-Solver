@@ -6,6 +6,7 @@
 #define AP_MIDTERMPROJECT_CUBE_H
 
 
+#include <ostream>
 #include "Side.h"
 
 class Cube {
@@ -62,6 +63,8 @@ public:
     void dCCW();
 
     bool isSolved();
+
+    friend std::ostream &operator<<(std::ostream &os, const Cube &cube);
 
 private:
     Side topSide, downSide, leftSide, rightSide, frontSide, backSide;
