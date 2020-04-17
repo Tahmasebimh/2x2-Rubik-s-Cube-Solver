@@ -19,7 +19,10 @@ private:
     MovementProvider movementProvider;
 
 public:
-    Cube solveCube(Cube cube, int lastMovement, int layerCounter);
+    //default of last movement and layer counter is zero
+    Cube solveCubeWithDLS(Cube cube, int lastMovement, int layerCounter, int depth = 8);
+
+    Cube solveWithIDS(Cube cube, int maxDepth);
 
     int test = 0;
 
