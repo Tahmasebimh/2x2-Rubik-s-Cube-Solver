@@ -5,7 +5,7 @@
 #include "model/h/Side.h"
 #include "model/h/Cube.h"
 #include "utils/Solver.h"
-#include "model/h/MovementProvider.h"
+#include "provider/MovementProvider.h"
 
 void split(const std::string &str, std::vector<std::string> &vector, char delim = ',');
 
@@ -133,19 +133,39 @@ int main() {
     std::cout << "Thanks for your attention!" << std::endl;
     Cube cube(topSide, downSide, leftSide, rightSide, frontSide, backSide);
 
-//    std::cout << "Input Cube is : " << std::endl;
-//    std::cout << cube << std::endl;
-//    cube.tCW();
-//    cube.rCCW();
-//    cube.dCCW();
-//    cube.bCCW();
-//    cube.tCCW();
-//    cube.rCW();
+
     std::cout << "Input Cube is : " << std::endl;
     std::cout << cube << std::endl;
+
+
+//    cube.fCW();
+//    cube.fCW();
+//    std::cout << "Input Cube is after 2 FCW: " << std::endl;
+//    std::cout << cube << std::endl;
+//
+//    cube.rCCW();
+//    std::cout << "Input Cube is after 2 RCCW: " << std::endl;
+//    std::cout << cube << std::endl;
+//
+//    cube.fCW();
+//    cube.fCW();
+//    std::cout << "Input Cube is after 2 FCW: " << std::endl;
+//    std::cout << cube << std::endl;
+//
+//    cube.rCCW();
+//    std::cout << "Input Cube is after 2 RCCW: " << std::endl;
+//    std::cout << cube << std::endl;
+//
+//    cube.dCCW();
+//    std::cout << "Input Cube is after 2 DCCW: " << std::endl;
+//    std::cout << cube << std::endl;
+//
+//    cube.fCCW();
+//    std::cout << "Input Cube is after 2 FCCW: " << std::endl;
+//    std::cout << cube << std::endl;
     Solver solver;
     std::cout << "Please wait until solving cube : " << std::endl;
-    Cube solved = solver.solveCube(cube, 0, 1);
+    Cube solved = solver.solveCube(cube, 0, 0);
 
     return 0;
 }

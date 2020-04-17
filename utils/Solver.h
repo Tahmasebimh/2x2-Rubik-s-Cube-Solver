@@ -7,7 +7,7 @@
 
 
 #include "../model/h/Cube.h"
-#include "../model/h/MovementProvider.h"
+#include "../provider/MovementProvider.h"
 #include <vector>
 
 class Solver {

@@ -5,10 +5,10 @@
 #include <vector>
 #include <iostream>
 #include "Solver.h"
-#include "../model/h/MovementProvider.h"
+#include "../provider/MovementProvider.h"
 
 Cube Solver::solveCube(Cube cube, int lastMovement, int layerCounter) {
-    if (cube.isSolved() || layerCounter >= 5){
+    if (cube.isSolved() || layerCounter >= 8){
         return cube;
     }
     if (lastMovement != movementProvider.tCW){
